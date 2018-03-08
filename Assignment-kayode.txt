@@ -1,0 +1,127 @@
+
+//--------------------------------------------------
+// INCLUDE SECTION
+//--------------------------------------------------
+#include "pal.h"
+
+//--------------------------------------------------
+// gen_num
+//--------------------------------------------------
+int gen_num(int lb, int ub) {
+	//1. We create the output variable with an initial value.
+	int res = 0;
+
+	//2. We assign num to a random value in the desired range
+	res = (rand() % (ub - lb)) + lb;
+
+	//3. We return the output variable
+	return res;
+}
+
+//--------------------------------------------------
+// my_getchar
+//--------------------------------------------------
+char my_get_char() {
+	//1. We create the output variable with the value the user has input by keyboard
+	char res = getchar();
+
+	//2. We discard any extra character the user has input by keyboard
+	boolean finish = False;
+	char dummy_char = ' ';
+
+	while (finish == False) {
+		dummy_char = getchar();
+		if (dummy_char == '\n')
+			finish = True;
+	}
+
+	//3. We return the output variable
+	return res;
+}
+
+//--------------------------------------------------
+// initialise_array    ( First part)
+//--------------------------------------------------
+
+void initialise_array(int a[6], int num) {
+
+	// Make sure n is greater or equal to 0. Insert value of pal_num into array by using remainder.
+	int n = 5;
+	while (n >= 0)
+	{
+	// At the n position in array, insert the remainder value into array.
+	// Then divide the number by 10 and decrease n value by 1
+		a[n] = num % 10;
+		num = num / 10;
+		n = n - 1;
+	}
+}
+
+//--------------------------------------------------
+// is_pal     ( Second part)
+//--------------------------------------------------
+
+boolean is_pal(int a[6]) {
+    // Set the variable valid to False, in-order to control conditional satement.
+	boolean valid = False;
+
+	// If the first digit is equal to the last digit, second digit = second last
+	// digit, third digit = fourth digit then it is palindrome
+	if (a[0] == a[5] && a[1] == a[4] && a[2] == a[3])
+	{
+		valid = True;
+	}
+	return valid;
+}
+
+//--------------------------------------------------
+// ask_for_command   ( Third part )
+//--------------------------------------------------
+char ask_for_command() {
+
+	//setting character to empty value 
+	char res = ' ';
+
+	// Set the variable valid to False, in-order to control conditional satement.
+	boolean valid = False;
+
+	do {
+		 {
+			printf("NEW MOVEMENT: Please enter a valid command by keyword:\n");
+			printf("Valid commands are: a \t d \t w \t x\n");
+
+			// Get the value of the command the user entered and return the character through fucntion
+			res = my_get_char();
+
+			// takes either small letter character or big letter character of the valid command.
+			if ((res == 'a', 'A') || (res == 'd', 'D') || (res == 'w', 'W') || (res == 'x', 'X'))
+			{
+			  valid = True;
+			}
+		 }
+			 // While valid is False then it will keep looping around.
+		} while (valid == False);
+
+	return res;
+}
+//--------------------------------------------------
+// process_movement   ( fourth part )
+//--------------------------------------------------
+void process_movement(int a[6], int** p_p, int* p_nm, char c) {
+
+}
+
+//--------------------------------------------------
+// print_status         ( fifth part ) 
+//--------------------------------------------------
+void print_status(int a[6], int* p, int nm) {
+
+}
+
+//--------------------------------------------------
+// user_game_palindrome      ( sixth part)
+//--------------------------------------------------
+void user_game_palindrome(int pal_num) {
+
+}
+
